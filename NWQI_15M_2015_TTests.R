@@ -2,7 +2,7 @@
 #Fifteenmile Sediment 
 #pre and post BMP implementation comparison
 #Julia Crown May 2016
-
+#
 
 # Load data file 
 RBS <- read.csv('\\\\Deqhq1\\TMDL\\NWQI\\Fifteenmile\\2015 Monitoring\\NWQI Field Data 2015\\NWQI-git\\Data\\DataAnalysisRBS.csv', header=T, stringsAsFactors=FALSE)
