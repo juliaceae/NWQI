@@ -182,3 +182,85 @@ t.test(Wolman$Pre.2000.Percent.Gravel...fines, Wolman$Post.2015Percent.gravel...
 # sample estimates:
 #   mean of the differences 
 # -2.091818 
+
+##################################################################################
+#Are any trends getting worse?
+
+#2005/06 and 2015 RBS LRBS values
+t.test(RBS$Pre.LRBS, RBS$Post.LRBS, paired=TRUE, alternative="greater")
+
+#2005/06 and 2015 RBS percent sand and fines values
+t.test(RBS$Pre.Percent.Sand.and.Fines..PCT_SAFN., as.numeric(RBS$Post.Percent.Sand.and.Fines..PCT_SAFN.), paired=TRUE, alternative="greater")
+
+#2005/06 and 2015 RBS percent sand values
+t.test(RBS$Pre.Percent.Sand..PCT_SA., RBS$Post.Percent.Sand..PCT_SA., paired=TRUE, alternative="greater")
+
+#2005/06 and 2015 RBS percent fines values
+t.test(RBS$Pre.Percent.Fines..PCT_FN., RBS$Post.Percent.Fines..PCT_FN., paired=TRUE, alternative="greater")
+
+#1994 and 2015 Wolman D50 values
+t.test(Wolman$Pre.1994.D50..mm, Wolman$Post.2015.D50..mm, paired=TRUE, alternative="greater")
+
+#1994 and 2015 Wolman percent less than 1 mm values
+t.test(Wolman$Pre.1994.percent.less.1mm, Wolman$Post.2015.Percent.less.1mm, paired=TRUE, alternative="greater")
+# Paired t-test
+# 
+# data:  Wolman$Pre.1994.percent.less.1mm and Wolman$Post.2015.Percent.less.1mm
+# t = 3.5614, df = 3, p-value = 0.01889
+# alternative hypothesis: true difference in means is greater than 0
+# 95 percent confidence interval:
+#   4.547092      Inf
+# sample estimates:
+#   mean of the differences 
+# 13.405 
+# Conclusion: At 4 sites, Wolman pebble counts <1mm in 2015  were greater than Wolman pebble counts <1mm in 1994.
+
+
+#1994 and 2015 Wolman percent sand and fines values
+t.test(Wolman$Pre.1994.percent.SAFN, Wolman$Post.2015.Percent.SAFN, paired=TRUE, alternative="greater")
+# Paired t-test
+# 
+# data:  Wolman$Pre.1994.percent.SAFN and Wolman$Post.2015.Percent.SAFN
+# t = 2.7951, df = 3, p-value = 0.03406
+# alternative hypothesis: true difference in means is greater than 0
+# 95 percent confidence interval:
+#   1.446849      Inf
+# sample estimates:
+#   mean of the differences 
+# 9.155 
+# Conclusion: At 4 sites, Wolman pebble counts percent SAFN in 2015  were greater than Wolman pebble counts percent SAFN in 1994.
+
+#1994 and 2015 Wolman percent gravel values
+t.test(Wolman$Pre.1994.percent.gravel...fines, Wolman$Post.2015Percent.gravel...fines, paired=TRUE, alternative="greater")
+# Paired t-test
+# 
+# data:  Wolman$Pre.1994.percent.gravel...fines and Wolman$Post.2015Percent.gravel...fines
+# t = 2.4381, df = 3, p-value = 0.04633
+# alternative hypothesis: true difference in means is greater than 0
+# 95 percent confidence interval:
+#   0.2139409       Inf
+# sample estimates:
+#   mean of the differences 
+# 6.1525 
+# Conclusion: At 4 sites, Wolman pebble counts percent gravel in 2015  were greater than Wolman pebble counts percent gravel in 1994.
+
+#2000 and 2015 Wolman D50 values
+t.test(Wolman$Pre.2000.D50..mm, Wolman$Post.2015.D50..mm, paired=TRUE, alternative="greater")
+
+#2000 and 2015 Wolman percent less than 1 mm values
+t.test(Wolman$Pre.2000.Percent.Less.1mm, Wolman$Post.2015.Percent.less.1mm, paired=TRUE, alternative="greater")
+
+#2000 and 2015 Wolman percent sand and fines values
+t.test(Wolman$Pre.2000.PercentSAFN, Wolman$Post.2015.Percent.SAFN, paired=TRUE, alternative="greater")
+
+#2000 and 2015 Wolman percent gravel values
+t.test(Wolman$Pre.2000.Percent.Gravel...fines, Wolman$Post.2015Percent.gravel...fines, paired=TRUE, alternative="greater")
+
+##################################################################################
+#Delete the RBS notes with Google slope values 
+
+RBS.slope.adj <- RBS[RBS$Post.Notes == "",]
+
+#2005/06 and 2015 RBS LRBS values
+t.test(RBS.slope.adj$Pre.LRBS, RBS.slope.adj$Post.LRBS, paired=TRUE, alternative="less")
+t.test(RBS.slope.adj$Pre.LRBS, RBS.slope.adj$Post.LRBS, paired=TRUE, alternative="greater")
